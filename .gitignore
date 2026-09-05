@@ -1,0 +1,52 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+.vite/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local databases / secrets
+*.db
+*.sqlite
+*.sqlite3
+
+# Coverage
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+
+backend/models/sentinelx/submission.csv
+backend/models/sentinelx/submission.csv
+backend/models/sentinelx/submission.csv
+backend/models/sentinelx/model.joblib

@@ -1,0 +1,148 @@
+{
+  "flow_a": {
+    "status": 200,
+    "sim_tx_id": "TXN-E2E-09230B",
+    "final_risk": 100.0,
+    "risk_level": "CRITICAL",
+    "fraud_score": 100.0,
+    "anomaly_score": 100.0,
+    "rule_score": 100.0,
+    "alert_created": true,
+    "alert_id": "ALERT-TXN-E2E-09230B"
+  },
+  "flow_b": {
+    "create_status": 200,
+    "investigation_id": "INV-136D0643",
+    "in_queue": true,
+    "detail_status": 200,
+    "tx_evidence_status": 200
+  },
+  "flow_c": {
+    "reasons": [
+      "Transaction from a new device",
+      "Transaction from a new location",
+      "High transaction velocity",
+      "Multiple failed attempts",
+      "Transaction amount is more than twice the user's normal amount",
+      "Transaction amount significantly exceeds user's normal amount",
+      "Transaction amount is extremely high compared with user's history",
+      "High-risk merchant",
+      "Transaction occurred far from user's normal location",
+      "Transaction occurred extremely far from user's normal location",
+      "Transaction occurred during unusual hours",
+      "Unusually high amount combined with high transaction velocity",
+      "High-risk merchant combined with high transaction velocity",
+      "High transaction amount combined with a high-risk merchant",
+      "Multiple suspicious signals occurring together"
+    ],
+    "shap_count": 5,
+    "shap_sample": {
+      "impact": "increases risk",
+      "feature": "amount_ratio",
+      "shap_value": 2.7042,
+      "explanation": "Transaction amount is 15.16x the user's average transaction amount.",
+      "display_name": "Amount compared with user's normal spending"
+    },
+    "ai_explanation_present": true,
+    "rag_items": 4
+  },
+  "flow_d": {
+    "patch_status": 200,
+    "saved_decision": "CONFIRMED_FRAUD",
+    "saved_status": "CONFIRMED_FRAUD",
+    "notes_persisted": true
+  },
+  "flow_e": {
+    "status": 200,
+    "model_health": "CRITICAL",
+    "drift_status": "INSUFFICIENT_BASELINE",
+    "feedback_evaluated": 4,
+    "confusion_matrix": {
+      "true_positive": 1,
+      "false_positive": 1,
+      "false_negative": 1,
+      "true_negative": 1
+    }
+  },
+  "flow_f": {
+    "status": 200,
+    "total_months": 4,
+    "overall_status": "DRIFT_DETECTED",
+    "drift_detected_count": 2,
+    "retraining_count": 3
+  },
+  "flow_g": {
+    "comparison_status": 200,
+    "selected_model": "LightGBM",
+    "threshold_status": 200,
+    "best_threshold": 52.0,
+    "hybrid_weights": {
+      "lightgbm": 0.45,
+      "anomaly": 0.3,
+      "rules": 0.25
+    },
+    "production_threshold": 52.0
+  },
+  "api_audit": [
+    {
+      "method": "GET",
+      "endpoint": "/health",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/system/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/dashboard/stats",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/dashboard/recent-transactions",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/transactions",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/alerts",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/analytics",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/investigations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/model-monitoring",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/concept-drift",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/model-comparison",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/threshold-optimization",
+      "status": 200
+    }
+  ]
+}

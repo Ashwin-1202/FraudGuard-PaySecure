@@ -1,0 +1,54 @@
+[
+    {
+        "month": "Month 1 - Baseline",
+        "fraud_rate": 0.1522,
+        "precision": 0.353415559772296,
+        "recall": 0.9789750328515112,
+        "f1": 0.5193447194144302,
+        "roc_auc": 0.9545711416950233,
+        "fpr": 0.3215380986081623,
+        "drift_score": 0.0,
+        "drift_status": "STABLE",
+        "f1_drop_from_baseline": 0.0,
+        "retraining_recommended": false
+    },
+    {
+        "month": "Month 2 - International Fraud",
+        "fraud_rate": 0.1546,
+        "precision": 0.3587360594795539,
+        "recall": 0.9987063389391979,
+        "f1": 0.5278632478632479,
+        "roc_auc": 0.9810520123973556,
+        "fpr": 0.32647267565649396,
+        "drift_score": 0.15769177253452474,
+        "drift_status": "DRIFT_DETECTED",
+        "f1_drop_from_baseline": -0.016402455113864473,
+        "retraining_recommended": true
+    },
+    {
+        "month": "Month 3 - Low-and-Slow Fraud",
+        "fraud_rate": 0.1436,
+        "precision": 0.23098434004474272,
+        "recall": 0.575208913649025,
+        "f1": 0.329608938547486,
+        "roc_auc": 0.6915705310433389,
+        "fpr": 0.32111163007940213,
+        "drift_score": 0.03102663323839947,
+        "drift_status": "STABLE",
+        "f1_drop_from_baseline": 0.36533688275655213,
+        "retraining_recommended": true
+    },
+    {
+        "month": "Month 4 - Account Takeover",
+        "fraud_rate": 0.1496,
+        "precision": 0.34969611968209446,
+        "recall": 1.0,
+        "f1": 0.5181849670938691,
+        "roc_auc": 0.9998116645957108,
+        "fpr": 0.327140169332079,
+        "drift_score": 0.29818417453840185,
+        "drift_status": "DRIFT_DETECTED",
+        "f1_drop_from_baseline": 0.002233106985026692,
+        "retraining_recommended": true
+    }
+]

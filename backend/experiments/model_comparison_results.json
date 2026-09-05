@@ -1,0 +1,48 @@
+{
+    "experiment": "fraud_model_comparison",
+    "dataset": {
+        "total_transactions": 50000,
+        "fraud_percentage": 8.7,
+        "feature_count": 24
+    },
+    "selected_model": "LightGBM",
+    "selection_reason": "Selected based on the best F1-score and ROC-AUC performance while considering inference time.",
+    "results": [
+        {
+            "model": "Logistic Regression",
+            "precision": 0.2536,
+            "recall": 0.7425,
+            "f1_score": 0.3781,
+            "roc_auc": 0.8483,
+            "training_time_seconds": 0.1181,
+            "inference_time_seconds": 0.004318
+        },
+        {
+            "model": "Random Forest",
+            "precision": 0.33,
+            "recall": 0.6046,
+            "f1_score": 0.4269,
+            "roc_auc": 0.8494,
+            "training_time_seconds": 4.3136,
+            "inference_time_seconds": 0.212611
+        },
+        {
+            "model": "XGBoost",
+            "precision": 0.3233,
+            "recall": 0.6322,
+            "f1_score": 0.4278,
+            "roc_auc": 0.8467,
+            "training_time_seconds": 2.4506,
+            "inference_time_seconds": 0.043526
+        },
+        {
+            "model": "LightGBM",
+            "precision": 0.3155,
+            "recall": 0.6701,
+            "f1_score": 0.429,
+            "roc_auc": 0.853,
+            "training_time_seconds": 1.6859,
+            "inference_time_seconds": 0.081821
+        }
+    ]
+}

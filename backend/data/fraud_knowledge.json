@@ -1,0 +1,47 @@
+[
+    {
+        "feature": "amount_ratio",
+        "title": "Unusual Transaction Amount",
+        "content": "A transaction amount significantly higher than the user's historical average can indicate unusual spending behavior, account takeover, or unauthorized payment activity."
+    },
+    {
+        "feature": "transactions_last_10min",
+        "title": "High Transaction Velocity",
+        "content": "A high number of transactions within a short period can indicate automated abuse, card testing, rapid unauthorized purchases, or account takeover activity."
+    },
+    {
+        "feature": "new_device",
+        "title": "New Device",
+        "content": "A transaction from a device not previously associated with the user's account can indicate credential compromise or unauthorized account access."
+    },
+    {
+        "feature": "new_location",
+        "title": "New Location",
+        "content": "A transaction originating from a location that is unusual for the user can indicate account takeover or unauthorized access."
+    },
+    {
+        "feature": "international",
+        "title": "International Transaction",
+        "content": "An international transaction may increase fraud risk when it differs from the user's normal geographic or spending behavior."
+    },
+    {
+        "feature": "merchant_risk",
+        "title": "High-Risk Merchant",
+        "content": "Transactions involving merchants with elevated historical or categorical risk may require additional fraud investigation."
+    },
+    {
+        "feature": "failed_attempts_10min",
+        "title": "Multiple Failed Attempts",
+        "content": "Several failed transaction attempts within a short period can indicate payment testing, credential attacks, or unauthorized activity."
+    },
+    {
+        "feature": "unusual_hour",
+        "title": "Unusual Transaction Time",
+        "content": "Transactions occurring during unusual hours may be suspicious when they differ significantly from the user's normal transaction behavior."
+    },
+    {
+        "feature": "distance_from_home",
+        "title": "Unusual Geographic Distance",
+        "content": "A transaction occurring far from the user's normal location can indicate unusual geographic behavior or possible account compromise."
+    }
+]
