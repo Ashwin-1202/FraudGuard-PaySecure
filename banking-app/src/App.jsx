@@ -138,7 +138,7 @@ function Login() {
   const submit = (e) => {
     e.preventDefault()
     const user = DEMO_USERS.find((u) => u.loginId === loginId.trim().toLowerCase() && u.pin === pin)
-    if (!user) return setError('Invalid credentials. Use demo PIN 1234.')
+    if (!user) return setError('Invalid credentials.')
     localStorage.setItem('paysecure_session', String(user.id))
     navigate('/dashboard')
   }
@@ -159,9 +159,9 @@ function Login() {
         <form onSubmit={submit}>
           <label>Select account</label>
           <select value={loginId} onChange={(e) => setLoginId(e.target.value)}>
-            <option value="ashwin">Ashwin — Primary Sender (•••• 1001)</option>
-            <option value="rahul">Rahul Kumar — Beneficiary (•••• 4821)</option>
-            <option value="priya">Priya Sharma — Beneficiary (•••• 7316)</option>
+            <option value="ashwin">Ashwin (•••• 1001)</option>
+            <option value="rahul">Rahul Kumar (•••• 4821)</option>
+            <option value="priya">Priya Sharma (•••• 7316)</option>
           </select>
           <label>Security PIN</label>
           <input type="password" inputMode="numeric" maxLength="4" value={pin} onChange={(e) => setPin(e.target.value)} placeholder="••••" />
@@ -169,7 +169,7 @@ function Login() {
           <button className="primary full" type="submit" style={{ marginTop: '16px' }}>Sign in</button>
         </form>
         <div className="demo-hint">
-          Demo PIN: <strong>1234</strong><br />
+          {/* Demo PIN: <strong>1234</strong><br /> */}
           Protected by FraudGuard · Controlled Hackathon Environment
         </div>
       </div>
