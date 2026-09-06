@@ -42,9 +42,48 @@ export default function Transactions() {
 
   const status = usePolling(getSystemStatus, 15000)
   const txs = usePolling(
-    () => listTransactions({ risk_level: riskFilter, search: debouncedSearch, page, page_size: 100 }),
+    async () => {
+      // IMPORTANT:
+      // Do not send the search string to the backend here.
+      // The backend search currently does not reliably search user_id,
+      // so sending it can remove matching transactions before the
+      // client-side user_id filter gets a chance to run.
+      //
+      // When searching, fetch several recent pages and perform the
+      // Transaction ID / User ID matching entirely on the frontend.
+      if (debouncedSearch.trim()) {
+        const pagesToSearch = 10
+
+        const responses = await Promise.all(
+          Array.from({ length: pagesToSearch }, (_, index) =>
+            listTransactions({
+              risk_level: riskFilter,
+              page: index + 1,
+              page_size: 100,
+            })
+          )
+        )
+
+        const seen = new Set<string>()
+
+        return responses
+          .flat()
+          .filter((tx) => {
+            const id = String(tx?.transaction_id ?? '')
+            if (!id || seen.has(id)) return false
+            seen.add(id)
+            return true
+          })
+      }
+
+      return listTransactions({
+        risk_level: riskFilter,
+        page,
+        page_size: 100,
+      })
+    },
     6000,
-    [riskFilter, debouncedSearch]
+    [riskFilter, debouncedSearch, page]
   )
 
   const rawData = txs.data ?? []
@@ -76,10 +115,16 @@ export default function Transactions() {
   // Filter client-side for Time Range and Amount Range (since backend only takes risk_level & search)
   const filteredData = rawData.filter((t) => {
     // Search user ID as well
-    if (debouncedSearch) {
+    if (debouncedSearch.trim()) {
+      const query = debouncedSearch.trim().toLowerCase()
+
+      const transactionId = String(t?.transaction_id ?? '').toLowerCase()
+      const userId = String(t?.user_id ?? '').toLowerCase()
+
       const matchSearch =
-        t.transaction_id.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
-        t.user_id.toLowerCase().includes(debouncedSearch.toLowerCase())
+        transactionId.includes(query) ||
+        userId.includes(query)
+
       if (!matchSearch) return false
     }
 
@@ -348,3 +393,4 @@ export default function Transactions() {
     </div>
   )
 }
+
